@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+ body{
+    background-image: url("./homebg.jpg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat',sans-serif;
+    height: 100vh;
+    margin: 0 auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+ }
+ .container{
+    background-color: #fff;
+    border-radius: 10px;
+    width: 800px;
+    height: 90%;
+    max-width: 100%;
+    min-height: 480px;
+    position: relative;
+    box-shadow: 0px 14px 28px rgba(0,0,0,.25),
+                0px 14px 28px rgba(0,0,0,.22);
+    
+ }
+
+ .left-container{
+    width: 45%;
+    right: 0;
+    height: 100%;
+    background-color: #FF416c;
+    background: linear-gradient(to right,#FF4828,#FF416C);
+    background-size: cover;
+    color: #FFFFFF;
+    border-radius: 10px;
+    
+ }
+
+.right-container{
+        float: right;
+        position: relative;
+        bottom: 420px;
+}
+.user{
+  margin: 20px 120px;
+  width: 50%;
+  padding: 12px 15px;
+  background-color: #eee;
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+}
+.user-button{
+    margin: 20px 170px;
+    width: 25%;
+    padding: 8px;
+    background-color: #FF4828;
+    color: #FFFFFF;
+    border-radius: 10px;
+    border-color: #FFFFFF;
+}
+.left-container h4{
+    position: relative;
+    top: 50px;
+    left: 15px;
+    overflow: hidden;
+}
+
+.left-container h3{
+  position: relative;
+  top: 110px;
+  left: 20px;
+  overflow: hidden;
+}
+
+.left-container p{
+    position: relative;
+    top: 60px;
+    left: 25px;
+    overflow: hidden;
+}
+
+.left-container h5{
+    position: relative;
+    top: 130px;
+    left: 50px;
+    overflow: hidden;
+    font-size: large;
+}
+
+.left-container button{
+    position: relative;
+    top: 290px;
+    left: 110px;
+    padding: 8px 15px;
+    background-color: #FFFFFF;
+    color: #FF4828;
+    border-radius: 10px;
+    font-weight: bold;
+    border-color: #FF416C;
+}

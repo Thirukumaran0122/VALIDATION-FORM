@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WELCOME JAVASCRIPT</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+</head>
+<body>
+    <div class="container" id="container">
+      <div class="form-container sign-up-container" >
+          <div class="function">
+            <h1>Create Account</h1>
+            <div class="social-container">
+              <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social"><i class="fab fa-google-plus"></i></a>
+              <a href="#" class="social"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <span>or use your email for registration</span>
+            <input type="text" placeholder="Name" id="name" value="" required/>
+            <p class="demo2" id="demo3">Please Enter your Name</p>
+            <input type="email" placeholder="Email" id="email" value="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required/>
+            <p class="demo2" id="demo4">Please Enter Valid Email</p>
+            <input type="tel" id="phone" placeholder="Mobile No"   value="+91">  
+            <p class="demo2" id="demo5"></p>         
+            <textarea name="Address" id="" cols="39" rows="10" placeholder="Enter your Address"></textarea>
+            <div class="center">
+              <div class="form-input">
+                <label for="file-ip-1">Upload Image</label>
+                <input type="file" id="file-ip-1" accept="image/*" onchange="showPreview(event);">
+                <div class="preview">
+                  <img id="file-ip-1-preview">
+                </div>
+              </div>
+            </div>
+            <input type="password" placeholder="Password" id="number" value=""  required/>
+            <p class="demo2" id="demo6">Password MIN 3 TO MAX 9</p>
+            <button type="submit" onclick="validatesignUp()"  >Sign Up</button>"
+          </div>
+      </div>
+      <div class="form-container sign-in-container">
+        <div class="function">
+          <h1>Login</h1>
+          <div class="social-container">
+            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social"><i class="fab fa-google-plus"></i></a>
+            <a href="#" class="social"><i class="fab fa-linkedin"></i></a>
+          </div>
+          <span>or use your account</span>
+          <input type="email" placeholder="Email" id="email1"  class="" required/>
+          <p id="demo1" class="demo1">Please enter valid emailId</p>
+          <input type="password" placeholder="Password" id="password" required/>
+          <p id="demo2" class="demo1">Password MIN 3 and MAX 9</p>
+          <button type="submit" onclick="validatesignIn()" >Sign In</button>
+        </div>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+             <h1>WELCOME</h1>
+             <p>To keep connect with us please <br> login with personal info</p>
+             <button class="press" id="signIn">Sign In</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+              <h1>WELCOME</h1>
+              <BUtton class="press" id="signUp">Sign Up</BUtton>
+            </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const signUpButton = document.getElementById("signUp");
+      const signInButton = document.getElementById("signIn");
+      const container = document.getElementById("container");
+      signUpButton.addEventListener('click',()=>{
+        container.classList.add("right-panel-active");
+      })
+      signInButton.addEventListener('click',()=>{
+        container.classList.remove("right-panel-active");
+      })
+
+      function showPreview(event){
+      if(event.target.files.length > 0){
+       var src = URL.createObjectURL(event.target.files[0]);
+       var preview = document.getElementById("file-ip-1-preview");
+       preview.src = src;
+       preview.style.display = "block";
+      }
+      }
+      function validatesignIn(){
+        var setemail = document.getElementById("email1").value;
+        localStorage.setItem('sessionmail',setemail); 
+        const email2 = document.getElementById("email1").value;
+        const Password = document.getElementById("password").value;
+        const emailpattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        const emailcond = emailpattern.test(email2);
+        if(email2){
+          const emailcond = emailpattern.test(email2);
+           console.log('true');
+        }else{
+          document.getElementById("demo1").style ="display: block;color: #FF4828;"
+          document.getElementById("email1").style ="border: 1px solid #FF4828;"
+        }
+        if(Password.length<3 || Password.length>=9){
+          document.getElementById("demo2").style ="display: block;color: #FF4828;"
+          document.getElementById("password").style ="border: 1px solid #FF4828;"
+        }else {
+          console.log('password--->True',Password); 
+        }
+        if(Password || emailcond){
+          window.location.href = "home.html";
+        }else {
+          return false;
+        }
+
+      }
+
+      function validatesignUp(){
+        var email = document.getElementById("email").value;
+        var Password1 = document.getElementById("number").value;
+        var mobileNo = document.getElementById("phone").value;
+        var setname = document.getElementById("name").value;
+        localStorage.setItem('session',setname); 
+        const emailpattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        if(email){
+          const emailcond1 = emailpattern.test(email);
+          console.log('true');
+        }else{
+          document.getElementById("email").style="border: 1px solid #FF4828;"
+          document.getElementById("demo4").style="display:block;"
+        }
+        if(name.length>3 || name.length <=13){
+          document.getElementById("name").style="border: 1px solid #FF4828;"
+          document.getElementById("demo3").style="display:block;"
+        }else{
+          console.log('true');
+        }
+        if(Password1.length>3 || Password1.length<=9){
+          document.getElementById("number").style="border: 1px solid #FF4828;"
+          document.getElementById("demo6").style="display:block;"
+        }else{
+          console.log('true');
+        }
+        if(email || Password1 || name )
+        {
+          localStorage.setItem('session',setname); 
+          window.location.href="home.html";
+        }else{
+          return false;
+        }
+        
+      }
+
+  </script>
+</body>
+</html>

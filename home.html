@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        
+      <div class="left-container">
+        <h4>LAST LOGIN:</h4><p id="date"></p>
+        <h3>HELLO</h3><h5 id="demo"></h5>
+      </div>
+      <div class="right-container" id="demo">
+          <div><input type="text" class="user" id="set1" value=""  placeholder="Name"/></div>
+          <div><input type="text" class="user" id="set2" value="" placeholder="Age"/></div>
+          <div><input type="text" class="user" id="set3" value="" placeholder="College"/></div>
+          <div><button onclick="saveevent()" class="user-button">SAVE</button></div>        
+      </div>
+    </div>
+    <script>
+        document.getElementById("date").innerHTML = Date(); 
+        var x = localStorage.getItem("session");
+        document.getElementById("demo").innerHTML = x;
+        var y = localStorage.getItem("sessionmail");
+        document.getElementById("demo").innerHTML = y;
+        
+        function saveevent(){
+          var num1 = document.getElementById("set1").value;
+          var num2 = document.getElementById("set2").value;
+          var num3 = document.getElementById("set3").value;
+          list = [];
+          list.push({
+              Name:num1,
+              Age:num2,
+              College:num3
+          })
+         console.log('session',list);
+         localStorage.setItem('function',JSON.stringify(list));
+        }
+        
+        
+    </script>
+</body>
+</html>
